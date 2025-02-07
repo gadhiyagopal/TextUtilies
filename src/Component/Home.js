@@ -1,7 +1,17 @@
-import React from 'react'
+import React , {useState} from 'react'
 import Header from './Header';
 
  function Home() {
+
+  const [first, setfirst] = useState(0)
+
+  const demo = () => {
+
+    setfirst(first+1);
+
+  }
+
+
   return (
     <>
     <Header page="GOPAL'S" heading='its Gopal Home page' />
@@ -15,13 +25,14 @@ import Header from './Header';
                 <textarea class="form-control" id="exampleFormControlTextarea1"style={{resize:'none'}} rows="7"></textarea>
                 </div>
                 <div>
-                <button type="button" className ="btn btn-primary mx-2">Clear</button>
+                <button type="button" className ="btn btn-primary mx-2" onClick={demo}>Clear</button>
                 <button type="button" className ="btn btn-primary mx-2">UpperCase</button>
                 <button type="button" className ="btn btn-primary mx-2">LowerCase</button>
                 </div>
                 <hr/>
                 <h3>No Of Charecter : </h3>
                 <h3>No Of Word : </h3>
+                <h1>counter :{first}</h1>
                 <hr/>
                 <div className="my-2">
                 <h3>Preview : </h3>
