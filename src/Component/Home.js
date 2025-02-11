@@ -11,6 +11,24 @@ import Header from './Header';
 
   }
 
+  const [text , settext] = useState('');
+
+  const changData = (e) => {
+    settext( e.target.value);
+  }
+
+  const AllClear = () => {
+    settext('');
+  }
+
+  const AllUpper = () => {
+    let vel = text
+    settext(vel.toUpperCase () );
+  }
+  const AllLower = () => {
+    let vel = text;
+    settext(vel.toLowerCase () );
+  }
 
   return (
     <>
@@ -22,21 +40,27 @@ import Header from './Header';
                 <div className="col-8">
                 <div className="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Enter Somthing.</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1"style={{resize:'none'}} rows="7"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1"
+                style={{resize:'none'}} 
+                rows="7"
+                value={text}
+                onChange={changData}
+                ></textarea>
                 </div>
                 <div>
-                <button type="button" className ="btn btn-primary mx-2" onClick={demo}>Clear</button>
-                <button type="button" className ="btn btn-primary mx-2">UpperCase</button>
-                <button type="button" className ="btn btn-primary mx-2">LowerCase</button>
+                {/* <button type="button" className ="btn btn-primary mx-2" onClick={demo}>Clear</button> */}
+                <button type="button" className ="btn btn-primary mx-2" onClick={AllClear}>Clear</button>
+                <button type="button" className ="btn btn-primary mx-2" onClick={AllUpper}>UpperCase</button>
+                <button type="button" className ="btn btn-primary mx-2" onClick={AllLower}>LowerCase</button>
                 </div>
                 <hr/>
-                <h3>No Of Charecter : </h3>
-                <h3>No Of Word : </h3>
-                <h1>counter :{first}</h1>
+                <h3>No Of Charecter : { text.length } </h3>
+                <h3>No Of Word : { (text.length>0 ) ? text.split(" ").length : "0" }</h3>
+                {/* <h1>counter :{first}</h1> */}
                 <hr/>
                 <div className="my-2">
                 <h3>Preview : </h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quidem mollitia odit eum minima porro velit vitae deleniti ipsum debitis. A quidem sequi fuga itaque voluptatem in ullam, ut alias praesentium libero pariatur neque quis qui nobis cum quisquam commodi numquam? Placeat sequi suscipit, doloremque fugit, fugiat eaque unde facilis labore nihil quas et odit. Aliquid saepe error quos quidem explicabo necessitatibus pariatur harum maxime, qui illum nemo dolorem inventore. Ducimus fuga voluptatum aliquam non magni possimus, amet laboriosam nam ipsam obcaecati sunt nobis qui, corrupti atque. Numquam repellat, voluptates molestias quis delectus autem voluptatibus sit quae recusandae debitis placeat.</p>
+                <p>{text}</p>
                 </div>
                 </div>
             </div>
